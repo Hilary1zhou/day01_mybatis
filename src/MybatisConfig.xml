@@ -3,10 +3,14 @@
 
 <configuration>
     <properties resource="jdbc.properties"/>
+    <settings>
+        <setting name="logImpl" value="log4j"/>
+    </settings>
     <typeAliases>
         <typeAlias type="main.com.itheima.bean.Student" alias="Student"></typeAlias>
         <!--     <package name="main.com.itheima.bean"/>-->
     </typeAliases>
+
 
     <environments default="mysql">
         <environment id="mysql">

@@ -15,9 +15,9 @@ public class StudentController {
         for (Student student : students) {
             System.out.println(student);
         }
-        System.out.println("---------------");
+      /*  System.out.println("---------------");
         Student student1 = service.selectById(3);
-        System.out.println(student1);
+        System.out.println(student1);*/
 
     }
 }
