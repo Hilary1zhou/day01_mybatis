@@ -5,6 +5,11 @@ import main.com.itheima.bean.Student;
 import java.util.List;
 
 public interface StudentService {
+    public abstract  List<Student> selectByIds(List<Integer> ids);
+
+    public abstract List<Student> selectCondition(Student student);
+
+    public abstract List<Student> selectByNameOrAge(String Name, Integer Age);
     /**
      * ²éÑ¯ËùÓĞ
      * @return

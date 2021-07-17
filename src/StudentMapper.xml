@@ -3,7 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="StudentMapper">
+<mapper namespace="main.com.itheima.mapper.StudentMapper">
+    <select id="selectByNameOrAge" resultType="student">
+        SELECT *
+        FROM student
+        WHERE name = #{p1}
+           OR age = #{p2}
+    </select>
+
     <select id="selectAll" resultType="Student">
         SELECT *
         FROM student
@@ -28,4 +35,26 @@
         FROM student
         WHERE id = #{id}
     </delete>
+    <select id="selectCondition" resultType="Student" parameterType="student">
+            SELECT * FROM student
+        <where>
+            <if test="id!=null">
+                id= #{id}
+            </if>
+            <if test="Name!=null">
+               AND Name= #{Name}
+            </if>
+            <if test="Age!=null">
+               AND Age= #{Age}
+            </if>
+        </where>
+    </select>
+    <select id="selectByIds" resultType="Student" parameterType="list">
+        SELECT * FROM student /*WHERE id IN (1, 2, 3);*/
+    <where>
+        <foreach collection="list" open="id IN (" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </where>
+    </select>
 </mapper>

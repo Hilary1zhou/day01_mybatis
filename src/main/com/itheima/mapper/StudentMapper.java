@@ -1,10 +1,27 @@
 package main.com.itheima.mapper;
 
 import main.com.itheima.bean.Student;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface StudentMapper {
+
+    public abstract List<Student> selectByIds(List<Integer> ids);
+    /**
+     *
+     * @param student
+     * @return
+     */
+    public abstract List<Student> selectCondition(Student student);
+
+    /**
+     * 根据姓名和年龄查询
+     * @param Name
+     * @param Age
+     * @return
+     */
+    public abstract List<Student> selectByNameOrAge(@Param("p1") String Name, @Param("p2") Integer Age);
     /**
      * 查询所有
      * @return
